@@ -82,5 +82,26 @@ def get_breeds():
     
     return jsonify(breeds_list)
 
+@app.route('/api/dogs', methods=['GET']) #Route to get all the breeds
+def get_dogs():
+    query = db.session.query(
+        Dog.id,
+        Dog.name,
+        Breed.name.label('breed')
+    ).join(Breed, Dog.breed_id == Breed.id)
+    
+    dogs_query = query.all()
+    
+    dogs_list = [
+        {
+            'id': dog.id,
+            'name': dog.name,
+            'breed': dog.breed
+        }
+        for dog in dogs_query
+    ]
+    
+    return jsonify(dogs_list)    
+
 if __name__ == '__main__':
     app.run(debug=True, port=5100) # Port 5100 to avoid macOS conflicts
