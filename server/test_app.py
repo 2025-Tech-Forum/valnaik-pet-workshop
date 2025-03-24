@@ -1,9 +1,8 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import json
-from .app import app  # Changed from relative import to absolute import
+from app import app  # Ensure this import is correct
 
-# filepath: server/test_app.py
 class TestApp(unittest.TestCase):
     def setUp(self):
         # Create a test client using Flask's test client
