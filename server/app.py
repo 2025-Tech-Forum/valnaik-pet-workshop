@@ -65,23 +65,6 @@ def get_dog(id):
     
     return jsonify(dog)
 
-# Route to get all breeds
-@app.route('/api/breeds', methods=['GET'])
-def get_breeds():
-    # Query all breeds
-    breeds_query = db.session.query(Breed.id, Breed.name).all()
-    
-    # Convert the result to a list of dictionaries
-    breeds_list = [
-        {
-            'id': breed.id,
-            'name': breed.name
-        }
-        for breed in breeds_query
-    ]
-    
-    return jsonify(breeds_list)
-
 @app.route('/api/dogs', methods=['GET']) #Route to get all the breeds
 def get_dogs():
     query = db.session.query(
