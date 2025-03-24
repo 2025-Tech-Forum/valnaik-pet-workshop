@@ -32,3 +32,4 @@ jobs:
       working-directory: ./server
       run: |
         python -m pytest test_app.py -v
+        
