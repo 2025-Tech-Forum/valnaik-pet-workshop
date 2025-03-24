@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import json
-from .app import app  # Changed from relative import to absolute import
+from app import app  # Changed from relative import to absolute import
 
 # filepath: server/test_app.py
 class TestApp(unittest.TestCase):
